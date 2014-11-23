@@ -185,7 +185,7 @@ class NodeDB:
       
       if 'uptime' in alias:
         node.uptime = alias['uptime']
-
+     
   def import_aliases(self, aliases):
     for mac, alias in aliases.items():
       try:
@@ -222,6 +222,12 @@ class NodeDB:
       
       if 'id' in alias:
         node.id = alias['id']
+      
+      if 'autoupdater_enabled' in alias: 
+        node.autoupdater['enabled'] = alias['autoupdater_enabled']
+      
+      if 'autoupdater_branch' in alias: 
+       node.autoupdater['branch'] = alias['autoupdater_branch']
 
   # list of macs
   # if options['gateway']:

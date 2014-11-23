@@ -19,6 +19,7 @@ class D3MapBuilder:
                         'model': x.model,
                         'uptime': x.uptime,
                         'flags': x.flags,
+                        'autoupdater': x.autoupdater,
                         'clientcount': x.clientcount
                        } for x in nodes]
 

@@ -34,6 +34,16 @@ class alfred:
         pass
 
       try:
+        node_alias['autoupdater_enabled'] = node['software']['autoupdater']['enabled']
+      except KeyError:
+        pass
+     
+      try:
+        node_alias['autoupdater_branch'] = node['software']['autoupdater']['branch']
+      except KeyError:
+        pass
+     
+      try:
         node_alias['id'] = node['network']['mac']
       except KeyError:
         pass

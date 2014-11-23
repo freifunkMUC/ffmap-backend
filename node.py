@@ -14,6 +14,10 @@ class Node():
     self.model = None
     self.uptime = None
     self.clientcount = 0
+    self.autoupdater = dict({
+      "enabled": None,
+      "branch": None
+    })
 
   def add_mac(self, mac):
     mac = mac.lower()
