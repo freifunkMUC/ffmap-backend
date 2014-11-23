@@ -7,7 +7,6 @@ import os
 
 from batman import batman
 from alfred import alfred
-from rrd import rrd
 from nodedb import NodeDB
 from d3mapbuilder import D3MapBuilder
 
@@ -84,7 +83,3 @@ nodes_json.close()
 
 #Move to destination
 os.rename(options['destination_directory'] + '/nodes.json.new',options['destination_directory'] + '/nodes.json')
-
-rrd = rrd(scriptdir +  "/nodedb/", options['destination_directory'] + "/nodes")
-rrd.update_database(db)
-rrd.update_images()
