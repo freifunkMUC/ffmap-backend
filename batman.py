@@ -61,8 +61,11 @@ class batman:
       gw_line = line.split()
       if (gw_line[0] == 'No'):
         continue
-      # When in client gateway mode maybe gw_line[0] is not the right.
-      gw.append({'mac':gw_line[0], 'bandwidth': gw_line[-1]})
+      if (gw_line[0] == '=>'):
+       # When in client gateway mode maybe gw_line[0] is not the right.
+       gw.append({'mac':gw_line[1], 'bandwidth': gw_line[-1]})
+      else:
+       gw.append({'mac':gw_line[0], 'bandwidth': gw_line[-1]})
     return gw
 
   def gateway_mode(self):
