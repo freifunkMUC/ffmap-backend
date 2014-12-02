@@ -3,6 +3,7 @@ class Node():
     self.name = ""
     self.id = ""
     self.macs = set()
+    self.addresses = set()
     self.interfaces = dict()
     self.flags = dict({
       "online": False,
@@ -18,6 +19,10 @@ class Node():
       "enabled": None,
       "branch": None
     })
+
+  def add_address(self, address):
+    address = address.lower()
+    self.addresses.add(address)
 
   def add_mac(self, mac):
     mac = mac.lower()

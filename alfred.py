@@ -19,6 +19,11 @@ class alfred:
           pass
 
       try:
+        node_alias['addresses'] = node['network']['addresses']
+      except KeyError:
+        pass  
+    
+      try:
         node_alias['firmware'] = node['software']['firmware']['release']
       except KeyError:
         pass

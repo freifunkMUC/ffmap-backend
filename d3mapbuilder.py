@@ -14,10 +14,10 @@ class D3MapBuilder:
 
     output['nodes'] = [{'name': x.name, 'id': x.id,
                         'macs': ', '.join(x.macs),
+                        'addresses': ', '.join(x.addresses),
                         'geo': [float(x) for x in x.gps.split(" ")] if x.gps else None,
                         'firmware': x.firmware,
                         'model': x.model,
-                        'uptime': x.uptime,
                         'flags': x.flags,
                         'autoupdater': x.autoupdater,
                         'clientcount': x.clientcount

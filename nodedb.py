@@ -222,7 +222,10 @@ class NodeDB:
       
       if 'id' in alias:
         node.id = alias['id']
-      
+     
+      if 'addresses' in alias:
+        node.addresses = alias['addresses']
+ 
       if 'autoupdater_enabled' in alias: 
         node.autoupdater['enabled'] = alias['autoupdater_enabled']
       
