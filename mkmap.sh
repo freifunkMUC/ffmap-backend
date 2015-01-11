@@ -4,9 +4,9 @@ cd $(dirname $0)
 
 export PATH=/usr/sbin:/usr/local/sbin:$PATH
 
-PEERS=/var/www/keyformular/keys/
+PEERS=/etc/fastd/ffmuc-mesh-vpn/peers
 ALIASES=/opt/ffmap-backend/aliases_peers.json
-DEST=/var/www/ffmap/
+DEST=/usr/share/nginx/html/ffmap/
 
 set -e
 
