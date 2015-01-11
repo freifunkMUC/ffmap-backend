@@ -28,7 +28,7 @@ class batman:
   def vis_data_batctl_legacy(self):
     """ Parse "batctl -m <mesh_interface> vd json -n" into an array of dictionaries.
     """
-    output = subprocess.check_output(["batctl","-m",self.mesh_interface,"vd","json","-n"])
+    output = subprocess.check_output(["batadv-vis","-i",self.mesh_interface,"-f","json"])
     lines = output.splitlines()
     vds = self.vis_data_helper(lines)
     for vd in vds:
