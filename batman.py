@@ -2,6 +2,7 @@
 import subprocess
 import json
 import re
+import os
 
 class batman:
   """ Bindings for B.A.T.M.A.N. advanced batctl tool
@@ -42,10 +43,21 @@ class batman:
     lines = output.splitlines()
     return self.vis_data_helper(lines)
 
+  def add_sudo_if_nonroot(self, command_array ):
+    """ Adds "sudo" to the command array if the calling user is not root (uid != 0)
+    """
+    if os.getuid() != 0:
+       command_array.insert(0, "sudo")
+	
+       return command_array
+
   def gateway_list(self):
     """ Parse "batctl -m <mesh_interface> gwl -n" into an array of dictionaries.
     """
-    output = subprocess.check_output(["batctl","-m",self.mesh_interface,"gwl","-n"])
+
+    batctl_command = self.add_sudo_if_nonroot(["batctl","-m",self.mesh_interface,"gwl","-n"])
+
+    output = subprocess.check_output(batctl_command)
     output_utf8 = output.decode("utf-8")
     # TODO Parse information
     lines = output_utf8.splitlines()
@@ -71,7 +83,10 @@ class batman:
   def gateway_mode(self):
     """ Parse "batctl -m <mesh_interface> gw"
     """
-    output = subprocess.check_output(["batctl","-m",self.mesh_interface,"gw"])
+
+    batctl_command = self.add_sudo_if_nonroot(["batctl","-m",self.mesh_interface,"gw"])
+
+    output = subprocess.check_output(batctl_command)
     elements = output.decode("utf-8").split()
     mode = elements[0]
     if mode == "server":
