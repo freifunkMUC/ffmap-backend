@@ -49,7 +49,7 @@ class batman:
     if os.getuid() != 0:
        command_array.insert(0, "sudo")
 	
-       return command_array
+    return command_array
 
   def gateway_list(self):
     """ Parse "batctl -m <mesh_interface> gwl -n" into an array of dictionaries.
