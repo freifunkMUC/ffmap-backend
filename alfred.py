@@ -39,6 +39,11 @@ class alfred:
         pass
 
       try:
+        node_alias['contact'] = node['owner']['contact']
+      except KeyError:
+        pass
+
+      try:
         node_alias['autoupdater_enabled'] = node['software']['autoupdater']['enabled']
       except KeyError:
         pass

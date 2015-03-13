@@ -85,7 +85,7 @@ class NodeDB:
         try:
           if 'neighbor' in x:
             try:
-              node = self.maybe_node_by_mac((x['neighbor']))
+              node = self.maybe_node_by_mac((x['neighbor'], ))
             except:
               continue
 
@@ -232,6 +232,9 @@ class NodeDB:
       if 'autoupdater_branch' in alias: 
        node.autoupdater['branch'] = alias['autoupdater_branch']
 
+      if 'contact' in alias:
+       node.contact = alias['contact']
+
   # list of macs
   # if options['gateway']:
   #   mark_gateways(options['gateway'])
@@ -373,8 +376,14 @@ def is_similar(a, b):
     delta = 0
 
   if len(c) > 0:
-    delta = sum(abs(i[0] -i[1]) for i in c)
-
+    delta = 0
+    for i in c:
+      ddd = abs(i[0] -i[1])
+      if ddd > 128:
+        ddd = abs(ddd - 256)
+      delta = delta + ddd
+    #delta = sum(abs(i[0] -i[1]) for i in c)
+  # if delta > 8:
   # These addresses look pretty similar!
   return delta < 8
 
@@ -393,7 +402,7 @@ def is_derived_mac(a, b):
 
   x = list(mac_a)
   x[5] += 1
-  x[5] %= 255
+  x[5] %= 256
   if mac_b == x:
     return True
 
@@ -402,21 +411,21 @@ def is_derived_mac(a, b):
     return True
 
   x[3] += 1
-  x[3] %= 255
+  x[3] %= 256
   if mac_b == x:
     return True
 
   x = list(mac_a)
   x[0] |= 2
   x[5] += 2
-  x[5] %= 255
+  x[5] %= 256
   if mac_b == x:
     return True
 
   x = list(mac_a)
   x[0] |= 2
   x[3] += 1
-  x[3] %= 255
+  x[3] %= 256
   if mac_b == x:
     return True
 

@@ -19,6 +19,7 @@ class Node():
       "enabled": None,
       "branch": None
     })
+    self.contact = None
 
   def add_address(self, address):
     address = address.lower()
