@@ -232,6 +232,9 @@ class NodeDB:
       if 'autoupdater_branch' in alias: 
        node.autoupdater['branch'] = alias['autoupdater_branch']
 
+      if 'contact' in alias:
+       node.contact = alias['contact']
+
   # list of macs
   # if options['gateway']:
   #   mark_gateways(options['gateway'])
