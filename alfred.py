@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import subprocess
 import json
+import os
 
 class alfred:
   def __init__(self,request_data_type = 158):
