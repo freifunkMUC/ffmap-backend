@@ -203,6 +203,9 @@ class NodeDB:
             if 'name' in alias:
                 node.name = alias['name']
 
+            if 'clientcount' in alias:
+                node.clientcount = alias['clientcount']
+
             if 'vpn' in alias and alias['vpn'] and mac and node.interfaces and mac in node.interfaces:
                 try:
                     node.interfaces[mac].vpn = True
