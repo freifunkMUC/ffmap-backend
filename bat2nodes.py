@@ -55,6 +55,8 @@ else:
   for gw in bm.gateway_list():
     db.mark_gateways([gw['mac']])
 
+db.count_clients()
+
 if options['aliases']:
   for aliases in options['aliases']:
     db.import_aliases(json.load(open(aliases)))
@@ -66,8 +68,6 @@ if options['aliases']:
 if options['alfred']:
   af = alfred()
   db.import_aliases(af.aliases())
-
-db.count_clients()
 
 if options['obscure']:
   db.obscure_clients()
