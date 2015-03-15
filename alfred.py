@@ -4,19 +4,19 @@ import json
 
 class alfred:
   def __init__(self,request_data_type = 158):
-    self.request_data_type = request_data_type
+   	self.request_data_type = request_data_type
 
   def add_sudo_if_nonroot(self, command_array ):
     """ Adds "sudo" to the command array if the calling user is not root (uid != 0)
     """
     if os.getuid() != 0:
-       command_array.insert(0, "sudo")
+        command_array.insert(0, "sudo")
 	
     return command_array
 
   def aliases(self):
 
-	command = self.add_sudo_if_nonroot(["alfred-json","-r",str(self.request_data_type),"-f","json","-z"])
+    command = self.add_sudo_if_nonroot(["alfred-json","-r",str(self.request_data_type),"-f","json","-z"])
 
     output = subprocess.check_output(command)
     alfred_data = json.loads(output.decode("utf-8"))
