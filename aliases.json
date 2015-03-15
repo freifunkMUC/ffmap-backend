@@ -2,7 +2,7 @@
    "f2:80:00:07:23:42" : {
       "name" : "gwtest3.ffmuc.net",
       "clientcount" : 0,
-      "vpn" : true,
+      "vpn" : true
    },
    "f2:80:00:08:23:42" : {
       "name" : "gwtest8.ffmuc.net",
