@@ -269,8 +269,8 @@ class NodeDB:
   def count_clients(self):
     for link in self._links:
       try:
-        a = self.maybe_node_by_id(link.source.interface)
-        b = self.maybe_node_by_id(link.target.interface)
+        a = self.maybe_node_by_mac([link.source.interface])
+        b = self.maybe_node_by_mac([link.target.interface])
 
         if a.flags['client']:
           client = a
