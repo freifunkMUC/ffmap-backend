@@ -29,7 +29,9 @@ class batman:
   def vis_data_batctl_legacy(self):
     """ Parse "batctl -m <mesh_interface> vd json -n" into an array of dictionaries.
     """
-    output = subprocess.check_output(["batadv-vis","-i",self.mesh_interface,"-f","json"])
+    command = self.add_sudo_if_nonroot(["batadv-vis","-i",self.mesh_interface,"-f","json"])
+
+    output = subprocess.check_output(command)
     lines = output.splitlines()
     vds = self.vis_data_helper(lines)
     for vd in vds:
@@ -39,7 +41,9 @@ class batman:
   def vis_data_batadv_vis(self):
     """ Parse "batadv-vis -i <mesh_interface> -f json" into an array of dictionaries.
     """
-    output = subprocess.check_output(["batadv-vis","-i",self.mesh_interface,"-f","json"])
+    command = self.add_sudo_if_nonroot(["batadv-vis","-i",self.mesh_interface,"-f","json"])
+
+    output = subprocess.check_output(command)
     lines = output.splitlines()
     return self.vis_data_helper(lines)
 
