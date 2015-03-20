@@ -67,6 +67,9 @@ if options['aliases']:
 
 if options['alfred']:
   af = alfred()
+  if af == {}:
+    # alfred did not return valid data
+    exit
   db.import_aliases(af.aliases())
 
 if options['obscure']:
