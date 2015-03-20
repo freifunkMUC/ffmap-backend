@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import subprocess
+from subprocess import Popen, PIPE
 import json
 import os
 
@@ -19,9 +19,22 @@ class alfred:
 
     command = self.add_sudo_if_nonroot(["alfred-json","-r",str(self.request_data_type),"-f","json","-z"])
 
-    output = subprocess.check_output(command)
-    alfred_data = json.loads(output.decode("utf-8"))
     alias = {}
+
+    try:
+      proc = Popen(command, stdout=PIPE)
+      output = proc.communicate()[0]
+    except:
+      # Killing alfred proc in case of errors, otherwise it will stay FOREVER
+      proc.terminate()
+      proc.kill()
+      return alias
+
+    try:
+      alfred_data = json.loads(output.decode("utf-8"))
+    except:
+      return alias
+
     for mac,node in alfred_data.items():
       node_alias = {}
       if 'location' in node:
