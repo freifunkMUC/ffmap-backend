@@ -1,17 +1,56 @@
 {
-   "f2:80:00:07:23:42" : {
-      "name" : "gw07.ffmuc.net",
-      "clientcount" : 0,
-      "vpn" : true
-   },
-   "f2:80:00:08:23:42" : {
-      "name" : "gw08.ffmuc.net",
-       "clientcount" : 0,
-       "vpn" : true
-   },
-   "f2:80:00:09:23:42" : {
-      "name" : "gw09.ffmuc.net",
-       "clientcount" : 0,
-       "vpn" : true
-   }
+  "f2:80:00:01:23:42" : {
+    "name" : "gw01.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:01:23:42"
+  },
+  "f2:80:00:02:23:42" : {
+    "name" : "gw02.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:02:23:42"
+  },
+  "f2:80:00:03:23:42" : {
+    "name" : "gw03.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:03:23:42"
+  },
+  "f2:80:00:04:23:42" : {
+    "name" : "gw04.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:04:23:42"
+  },
+  "f2:80:00:05:23:42" : {
+    "name" : "gw05.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:05:23:42"
+  },
+  "f2:80:00:06:23:42" : {
+    "name" : "gw06.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:06:23:42"
+  },
+  "f2:80:00:07:23:42" : {
+    "name" : "gw07.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:07:23:42"
+  },
+  "f2:80:00:08:23:42" : {
+    "name" : "gw08.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:08:23:42"
+  },
+  "f2:80:00:09:23:42" : {
+    "name" : "gw09.ffmuc.net",
+    "clientcount" : 0,
+    "vpn" : true,
+    "mac": "f2:80:00:09:23:42"
+  }
 }
